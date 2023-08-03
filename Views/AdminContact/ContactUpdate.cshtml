@@ -1,0 +1,28 @@
+﻿@model g212102053_mehmet_kaan_akcan_odev.Models.Siniflar.Contact
+@{
+    ViewBag.Title = "ContactUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>İletişim Bilgileri Güncelle</h2>
+<br />
+@using (Html.BeginForm("Update", "AdminContact", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ContactID)
+        <label>Lokasyon</label>
+        @Html.TextAreaFor(x => x.Location, new { @class = "form-control", @required = "required" })
+        @Html.ValidationMessageFor(x => x.Location, "", new { @style = "color:red" })
+        <br />
+        <label>Email</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @required = "required" })
+        @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color:red" })
+        <br />
+        <label>Telefon</label>
+        @Html.TextBoxFor(x => x.Call, new { @class = "form-control", @required = "required" })
+        @Html.ValidationMessageFor(x => x.Call, "", new { @style = "color:red" })
+        <br />
+    </div>
+    <br />
+        <button class="btn btn-warning">Güncelle</button>
+}

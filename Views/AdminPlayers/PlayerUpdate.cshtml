@@ -1,0 +1,39 @@
+﻿@model g212102053_mehmet_kaan_akcan_odev.Models.Siniflar.Player
+@{
+    ViewBag.Title = "PlayerUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Oyuncu Güncelle</h2>
+<br />
+@using (Html.BeginForm("Update","AdminPlayers", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.PlayerID)
+                    <label>Oyuncu Fotoğraf URL</label>
+                    @Html.TextBoxFor(x => x.PlayerImage, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(x => x.PlayerImage, "", new { @style = "color:red" })
+                    <br />
+                    <label>Numara</label>
+                    @Html.TextBoxFor(x => x.PlayerNumber, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(x => x.PlayerNumber, "", new { @style = "color:red" })
+                    <br />
+                    <label>Oyuncu Adı</label>
+                    @Html.TextBoxFor(x => x.PlayerName, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(x => x.PlayerName, "", new { @style = "color:red" })
+                    <br />
+                    <label>Oyuncu Soyadı</label>
+                    @Html.TextBoxFor(x => x.PlayerSurname, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(x => x.PlayerSurname, "", new { @style = "color:red" })
+                    <br />
+                    <label>Oynadığı Pozisyon</label>
+                    @Html.TextBoxFor(x => x.position_played, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(x => x.position_played, "", new { @style = "color:red" })
+                    <br />
+                    <label>Uyruk</label>
+                    @Html.TextBoxFor(x => x.Nationality, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(x => x.Nationality, "", new { @style = "color:red" })
+                    <br />
+                    <button class="btn btn-warning">Güncelle</button>
+                </div>
+            }

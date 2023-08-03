@@ -1,0 +1,21 @@
+﻿@model g212102053_mehmet_kaan_akcan_odev.Models.Siniflar.User
+@{
+    ViewBag.Title = "UserAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Kullanıcı Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <input type="text" class="name form-control" name="UserName" Placeholder="Kullanıcı Adı" required="" />
+    <br />
+    <input type="text" class="name form-control" name="FullName" Placeholder="Tam Ad" required="" />
+    <br />
+    <input type="email" class="email form-control" name="Email" Placeholder="Email" required="" />
+    <br />
+    <input type="password" class="password form-control" name="Password" Placeholder="Şifre" required="" />
+    <br />
+    <input type="text" class="name form-control" name="Authorization" Placeholder="Yetki Karakteri" required="" />
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>

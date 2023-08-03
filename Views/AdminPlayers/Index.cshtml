@@ -1,0 +1,69 @@
+﻿@using g212102053_mehmet_kaan_akcan_odev.Models.Siniflar
+@model List<Player>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Oyuncular</h2>
+@if (User.IsInRole("A"))
+{
+    <a href="/AdminPlayers/PlayerAdd" class="btn btn-outline btn-primary btn-xs pull-right">Oyuncu Ekle</a>
+}
+<table id="example" data-plugin="DataTable" class="table" style="margin-top:20px;">
+    <tr>
+        <th>Oyuncu Fotoğraf</th>
+        <th>Numara</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Pozisyon</th>
+        <th>Uyruk</th>
+        @if (User.IsInRole("A"))
+        {
+            <th>İşlemler</th>
+        }
+    </tr>
+    @foreach (var o in Model)
+    {
+        <tr>
+            <td>
+                <img src="@o.PlayerImage" width="200px" alt="Oyuncu Fotoğrafı" />
+            </td>
+            <td>
+                #@o.PlayerNumber
+            </td>
+            <td>
+                @o.PlayerName
+            </td>
+            <td>
+                @o.PlayerSurname
+            </td>
+            <td>
+                @o.position_played
+            </td>
+            <td>
+                @o.Nationality
+            </td>
+            @if (User.IsInRole("A"))
+            {
+                <td>
+                    <a href="/AdminPlayers/PlayerUpdate/@o.PlayerID" class="btn btn-success">Güncelle</a>
+                    <a href="/AdminPlayers/PlayerDelete/@o.PlayerID" class="btn btn-danger">Sil</a>
+                </td>
+            }
+        </tr>
+    }
+</table>
+<script src="~/web/dist/js/jquery-3.5.1.js"></script>
+<script src="~/web/dist/js/dataTables.min.js"></script>
+<script src="~/web/dist/js/dataTables.bootstrap.min.js"></script>
+
+<script>
+        $(document).ready( function () {
+            var table = $('#example').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json"
+                },
+            });
+        } );
+</script>

@@ -1,0 +1,27 @@
+﻿@using g212102053_mehmet_kaan_akcan_odev.Models.Siniflar
+@model List<History>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2 class="text-center">Tarihçe</h2>
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row content">
+                @foreach (var h in Model)
+                {
+                    @h.HistoryDescription
+                }
+            </div>
+        </div>
+    </section><!-- End About Section -->
+
+</main><!-- End #main -->

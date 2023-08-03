@@ -1,0 +1,22 @@
+﻿@model g212102053_mehmet_kaan_akcan_odev.Models.Siniflar.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Profilim</h2>
+
+@using(Html.BeginForm("Index2","AdminProfile",FormMethod.Post))
+            {
+                <table class="table table-hover">
+                    <tr>
+                        <td><label>Mail Adresi: @HttpContext.Current.User.Identity.Name</label></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.TextBoxFor(x => x.FullName, new { @class = "form-control" })</td>
+                    </tr>
+                </table>
+            }

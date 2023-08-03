@@ -1,0 +1,42 @@
+﻿@using g212102053_mehmet_kaan_akcan_odev.Models.Siniflar
+@model List<MainImage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Anasayfa Fotoğrafları</h2>
+@if (User.IsInRole("A"))
+{
+    <a href="/AdminMainImage/ImageAdd" class="btn btn-outline btn-primary btn-xs pull-right">Fotoğraf Ekle</a>
+}
+    <table class="table table-bordered" style="margin-top:20px;">
+        <tr>
+            <th>Fotoğraf</th>
+            <th>Fotoğraf URL</th>
+            @if (User.IsInRole("A"))
+            {
+                <th>İşlemler</th>
+            }
+        </tr>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@i.MainImageUrl" width="500px" alt="Anasayfa Fotoğrafı" />
+                </td>
+                <td>
+                    @i.MainImageUrl
+                </td>
+                @if (User.IsInRole("A"))
+                {
+                    <td>
+
+                        <a href="/AdminMainImage/MainImageUpdate/@i.MainImageID" class="btn btn-success">Güncelle</a>
+                        <a href="/AdminMainImage/MainImageDelete/@i.MainImageID" class="btn btn-danger">Sil</a>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+
+

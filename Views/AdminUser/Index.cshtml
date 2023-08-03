@@ -1,0 +1,62 @@
+﻿@using g212102053_mehmet_kaan_akcan_odev.Models.Siniflar
+@model List<User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Kullanıcılar</h2>
+@if (User.IsInRole("A"))
+{
+    <a href="/AdminUser/UserAdd" class="btn btn-outline btn-primary btn-xs pull-right">Kullanıcı Ekle</a>
+}
+<table id="example" data-plugin="DataTable" class="table" style="margin-top:20px;">
+    <tr>
+        <th>Kullanıcı Adı</th>
+        <th>Tam Ad</th>
+        <th>Email</th>
+        <th>Yetki Karakteri</th>
+        @if (User.IsInRole("A"))
+        {
+            <th>İşlemler</th>
+        }
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>
+                @u.UserName
+            </td>
+            <td>
+                @u.FullName
+            </td>
+            <td>
+                @u.Email
+            </td>
+            <td>
+                @u.Authorization
+            </td>
+            @if (User.IsInRole("A"))
+            {
+                <td>
+                    <a href="/AdminUser/UserUpdate/@u.UserID" class="btn btn-success">Güncelle</a>
+                    <a href="/AdminUser/UserDelete/@u.UserID" class="btn btn-danger">Sil</a>
+                </td>
+            }
+        </tr>
+    }
+</table>
+
+<script src="~/web/dist/js/jquery-3.5.1.js"></script>
+<script src="~/web/dist/js/dataTables.min.js"></script>
+<script src="~/web/dist/js/dataTables.bootstrap.min.js"></script>
+
+<script>
+        $(document).ready( function () {
+            var table = $('#example').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.18/i18n/Turkish.json"
+                },
+            });
+        } );
+</script>

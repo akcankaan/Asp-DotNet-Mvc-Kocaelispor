@@ -1,0 +1,28 @@
+﻿@using g212102053_mehmet_kaan_akcan_odev.Models.Siniflar
+@model List<Player>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<!-- ======= Team Section ======= -->
+<section id="team" class="team ">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var p in Model)
+            {
+                <div class="col-lg-6">
+                    <div class="member d-flex align-items-start">
+                        <div class="pic"><img src="@p.PlayerImage" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>@p.PlayerName @p.PlayerSurname</h4>
+                            <p>#@p.PlayerNumber</p>
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+
+    </div>
+</section><!-- End Team Section -->

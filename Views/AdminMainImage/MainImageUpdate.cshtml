@@ -1,0 +1,18 @@
+﻿@model g212102053_mehmet_kaan_akcan_odev.Models.Siniflar.MainImage
+@{
+    ViewBag.Title = "MainImageUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Anasayfa Fotoğrafı Güncelle</h2>
+<br />
+@using (Html.BeginForm("ImageUpdate", "AdminMainImage", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.MainImageUrl, new { @class = "form-control", @required = "required" })
+        @Html.HiddenFor(x => x.MainImageID)
+        @Html.ValidationMessageFor(x => x.MainImageUrl, "", new { @style = "color:red" })
+    </div>
+    <br />
+        <button class="btn btn-warning">Güncelle</button>
+    }

@@ -1,0 +1,41 @@
+﻿@using g212102053_mehmet_kaan_akcan_odev.Models.Siniflar
+@model List<Contact>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>İletişim Bilgileri</h2>
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Lokasyon</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        @if (User.IsInRole("A"))
+        {
+            <th>İşlemler</th>
+        }
+        </tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>
+                @c.Location
+            </td>
+            <td>
+                @c.Email
+            </td>
+            <td>
+                @c.Call
+            </td>
+            @if (User.IsInRole("A"))
+            {
+                <td>
+                    <a href="/AdminContact/ContactUpdate/@c.ContactID" class="btn btn-success">Güncelle</a>
+                </td>
+            }
+            </tr>
+    }
+</table>
+
+
