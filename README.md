@@ -1,1 +1,1 @@
-Sakarya Uygulamalı Bilimler Ünviversitesi Bilgisayar Programcılığı İnternet Programcılığı 2 için hazırladığım ödev' de Asp .Net Mvc kullanarak bir web site geiştirdim.
+Sakarya Uygulamalı Bilimler Ünviversitesi Bilgisayar Programcılığı İnternet Programcılığı 2 için hazırladığım ödev' de Asp .Net Mvc kullanarak bir web site geiştirildi.Mvc5 ve Veritabanı için CodeFirst kullanıldı.
